@@ -1,41 +1,20 @@
 package tasks;
 
-import java.util.Objects;
-
 public class Task {
+    private int id;
     private String title;
     private String description;
-    private int idOfTask;
     private Status status;
 
-    public Task(String title, String description, Status status) {
+    public Task(int id, String title, String description, Status status) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getIdOfTask() {
-        return idOfTask;
-    }
-
-    public void setIdOfTask(int idOfTask) {
-        this.idOfTask = idOfTask;
+    public int getId() {
+        return id;
     }
 
     public Status getStatus() {
@@ -48,27 +27,10 @@ public class Task {
 
     @Override
     public String toString() {
-        return this.getClass() + "{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", idOfTask=" + idOfTask +
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", status=" + status +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return idOfTask == task.idOfTask &&
-                Objects.equals(title, task.title) &&
-                Objects.equals(description, task.description) &&
-                status == task.status;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(title, description, idOfTask, status);
     }
 }
